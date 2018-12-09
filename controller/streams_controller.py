@@ -1,8 +1,11 @@
-from flask import Flask
 from typing import Set
-from domain.streams import *
-from domain.simulation import Simulation
+
 import jsonpickle
+from flask import Flask
+
+from domain.energy_stream import EnergyStream
+from domain.simulation import Simulation
+
 app = Flask(__name__)
 
 

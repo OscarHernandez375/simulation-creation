@@ -1,6 +1,5 @@
 from abc import ABC
 from typing import Set
-from domain.streams import *
 
 
 class UnitOperation(ABC):
@@ -13,6 +12,3 @@ class UnitOperation(ABC):
         self.pressure = 1
         self.max_volume = 0
         self.actual_volume = 0
-
-    def mathematical_system(self):
-        pass

@@ -1,5 +1,4 @@
 from abc import ABC
-from domain.component import Component
 from typing import Dict
 
 
@@ -26,6 +25,9 @@ class StoichiometricReaction(Reaction):
     def conversion(self):
         return self.__conversion
 
+    @conversion.setter
+    def conversion(self, conversion):
+        self.__conversion = conversion
 
 
 class RigorousReaction(Reaction):
