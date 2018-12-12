@@ -1,6 +1,9 @@
 from abc import ABC
 from typing import Set
 
+from domain.energy_stream import EnergyStream
+from domain.stream import Stream
+
 
 class UnitOperation(ABC):
     def __init__(self):
@@ -10,5 +13,4 @@ class UnitOperation(ABC):
         self.output_energy_streams: Set[EnergyStream] = set()
         self.temperature = 273.15
         self.pressure = 1
-        self.max_volume = 0
-        self.actual_volume = 0
+

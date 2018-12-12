@@ -1,4 +1,7 @@
+from typing import Dict
+
 import numpy as np
+
 from domain.component import Component
 
 
@@ -6,7 +9,7 @@ class Stream(object):
 
     def __init__(self, name):
         self.name = name
-        self.__molar_composition = {}
+        self.__molar_composition: Dict[Component, float] = {}
         self.__temperature = 273.15
         self.__pressure = 1.0
         self.__mass_flow = 0.0
@@ -14,7 +17,7 @@ class Stream(object):
         self.__avg_density = 0.0
 
     @property
-    def molar_composition(self) -> {}:
+    def molar_composition(self) -> {Component, float}:
         return self.__molar_composition
 
     @property
@@ -52,6 +55,7 @@ class Stream(object):
             self.__molar_total_from_composition()
             self.__mass_total_from_composition()
             self.__avg_density_from_composition()
+            return self
 
     def delete_component(self, component):
         del self.__molar_composition[component]
@@ -74,13 +78,3 @@ class Stream(object):
         for key, value in self.__molar_composition.items():
             result.append(key.density * value * key.molecular_weight / self.__mass_flow)
         self.__avg_density = np.sum(result)
-
-
-# stream = Stream("s1")
-# c1 = Component(3, "H2", 1, "H2", 1)
-# c2 = Component(1, "H2", 1, "H2", 1)
-#
-# stream.add_update_component(c1, 1.0)
-# stream.add_update_component(c2, 2.0)
-#
-# print(stream.mass_flow, stream.molar_flow, stream.avg_density)
