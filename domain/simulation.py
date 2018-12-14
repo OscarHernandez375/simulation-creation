@@ -3,7 +3,6 @@ from domain.stream import Stream
 
 
 class Simulation:
-
     def __init__(self, name):
         self.name = name
         self.streams: Set[Stream] = set()

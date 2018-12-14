@@ -1,4 +1,4 @@
-class Component(object):
+class Component:
     def __init__(self, molecular_weight, name, formation_enthalpy, chemical_formula, density):
         self.__molecular_weight = molecular_weight
         self.__name = name

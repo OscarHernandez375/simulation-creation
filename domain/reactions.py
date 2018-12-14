@@ -21,7 +21,7 @@ class Reaction(ABC):
 class StoichiometricReaction(Reaction):
     def __init__(self):
         super().__init__()
-        self.__conversion: Dict[Component, float] = {}
+        self.__conversion: [Component, float] = []
         self.__limit_reactants: Component = None
 
     @property
@@ -34,7 +34,8 @@ class StoichiometricReaction(Reaction):
 
     def conversion_setter(self, component: Component, conversion: float):
         component = component if self.reactants.__contains__(component) else None
-        self.__conversion.__setitem__(component, conversion)
+        self.__conversion.append(component)
+        self.__conversion.append(conversion)
         return self
 
     def calc_limit_reactant(self, inputs):
